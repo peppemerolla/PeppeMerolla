@@ -754,7 +754,7 @@
       <!-- This form works once you connect it to a free form backend (e.g. Formspree).
            EDIT: replace YOUR_FORM_ID below with your Formspree form ID, or delete the
            action attribute to fall back to the mailto button above. -->
-      <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <form action="https://formspree.io/f/mgojwovd" method="POST" onsubmit="event.preventDefault();var f=this,s=document.getElementById('formStatus');s.textContent='Sending…';s.style.color='var(--bone-dim)';fetch(f.action,{method:'POST',body:new FormData(f),headers:{'Accept':'application/json'}}).then(function(r){if(r.ok){f.reset();s.textContent='Thanks — your message was sent. Peppe will be in touch soon.';s.style.color='var(--brass)';}else{s.textContent='That did not go through. Please email peppemerollabookings@gmail.com instead.';s.style.color='var(--bone-dim)';}}).catch(function(){s.textContent='That did not go through. Please email peppemerollabookings@gmail.com instead.';s.style.color='var(--bone-dim)';});">
         <div class="two">
           <div class="field">
             <label for="name">Name</label>
@@ -778,7 +778,8 @@
           <label for="msg">Message</label>
           <textarea id="msg" name="message" required placeholder="Tell Peppe a little about what you need…"></textarea>
         </div>
-        <button class="btn btn-primary" type="submit">Send message →</button>
+         <button class="btn btn-primary" type="submit">Send message →</button>
+        <p id="formStatus" aria-live="polite" style="margin-top:14px;font-size:.9rem;line-height:1.5;"></p>
       </form>
     </div>
   </div>
